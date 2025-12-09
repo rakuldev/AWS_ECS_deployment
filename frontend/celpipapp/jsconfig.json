@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "*": ["node_modules/*"],
+        "react-router-dom": ["node_modules/react-router-dom"]
+      }
+    },
+    "exclude": ["node_modules", "build"]
+  }
+  

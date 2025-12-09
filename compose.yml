@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: ./Backend/celpipapp
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    build:
+      context: ./frontend/celpipapp
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
