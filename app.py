@@ -33,7 +33,12 @@ def get_synonym_antonym(word):
         return synonym, antonym
     else:
         return "Synonym not found", "Antonym not found"
-    
+
+
+@app.route("/", methods=["GET"])
+def health():
+    return "OK", 200
+
 @app.route("/api/get_random_word", methods=["GET"])
 def get_random_word():
     random_word = random.choice(df["Word"].dropna().values)
@@ -87,7 +92,7 @@ def vocabulary():
     synonym, antonym = get_synonym_antonym(word)
     return jsonify({"synonym": synonym, "antonym": antonym})
 
-# Run Flask app
-if __name__ == "__main__":
-    print("Starting Flask App...")
-    app.run(host="0.0.0.0", debug=True)
+# # Run Flask app
+# if __name__ == "__main__":
+#     print("Starting Flask App...")
+#     app.run(host="0.0.0.0", debug=False, use_reloader=False)

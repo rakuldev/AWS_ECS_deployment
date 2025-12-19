@@ -137,7 +137,11 @@ const Page2 = () => {
   const fetchRandomWord = async () => {
     setLoading(true);
     try {
+<<<<<<< HEAD
       const response = await fetch("http://localhost:5000/get-next-word");
+=======
+      const response = await fetch("/get-next-word");
+>>>>>>> a24b991 (main | added prod based changes on frontend and backend)
       const data = await response.json();
       setWord(data.word); // Set the random word to the state
       setUserAnswer(""); // Clear the user's previous answer
@@ -158,7 +162,11 @@ const Page2 = () => {
     setIsCorrect(null); // Reset correctness status
 
     try {
+<<<<<<< HEAD
       const response = await fetch("http://localhost:5000/validate-answer", {
+=======
+      const response = await fetch("/validate-answer", {
+>>>>>>> a24b991 (main | added prod based changes on frontend and backend)
         method: "POST",
         headers: {
           "Content-Type": "application/json",

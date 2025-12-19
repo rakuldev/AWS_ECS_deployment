@@ -1,23 +1,31 @@
-# Use official Python image from Docker Hub
+# Use official Python image
 FROM python:3.11-slim
 
-# Set the working directory inside the container
+# Prevent Python from buffering logs
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
 WORKDIR /app
 
-# Copy the requirements file into the container
-COPY requirements.txt /app/
+# Install system dependencies (needed for pandas/openpyxl sometimes)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Copy requirements first (better layer caching)
+COPY requirements.txt .
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the Flask app code into the container
-COPY . /app/
+# Copy application code
+COPY . .
 
-# Copy the XLSX file from the root directory into the container
+# Copy Excel file explicitly
 COPY vocalbulary_tracker.xlsx /app/vocalbulary_tracker.xlsx
 
-# Expose the port Flask will run on
+# Expose app port
 EXPOSE 5000
 
-# Run the Flask app
-CMD ["python", "app.py"]
+# Run Gunicorn as PID 1 (CRITICAL for ECS)
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
