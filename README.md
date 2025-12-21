@@ -13,7 +13,7 @@ As described, the traffic initally flows in through the Application load balance
 - Tg1: For the frontend (default)
 - Tg2: For backend testing (priority 10) - configured with rule: if the url has a substring "/api/*" in its path, the traffic flow redirection will go to any existing valid API endpoint.
 
-### The load balancer:
+### The Load Balancer:
 <img width="1592" height="840" alt="Screenshot 2025-12-20 225846" src="https://github.com/user-attachments/assets/09036f92-ce89-4d10-982f-c4195d2858a1" />
 
 ### Target groups:
@@ -34,6 +34,7 @@ For the purpose of inducing some security initiatives, its a best practice to us
 
 ### ECS Cluster:
 This holds our services which has our microservices running. Every service has a task running (1 minimum) to start and keep it up & running. Fundamentally, it provides a platform.
+Our ECS cluster is a Fargate environment (i.e., Infrastructure config will be taken care by AWS itself) as we know this is a small-scale application with no much traffic. 
 <img width="1618" height="790" alt="Screenshot 2025-12-20 225757" src="https://github.com/user-attachments/assets/08f18f67-5996-4f5d-a2a6-2878a8c8446e" />
 
 <b>Services</b>
@@ -42,6 +43,7 @@ This holds our services which has our microservices running. Every service has a
 
 ### Task Definitions:
 This carries the data of Target groups, load balancer so that an IP would be assigned to the target group from ECS which will be registered as target for managing inbound and outbound traffic.
+
 <b>Frontend Task</b>
 <img width="1608" height="864" alt="Screenshot 2025-12-20 225830" src="https://github.com/user-attachments/assets/8dbf07d3-c32c-49a2-8118-6c9ae1ae4508" />
 
