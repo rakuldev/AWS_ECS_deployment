@@ -36,12 +36,12 @@ jobs:
         
         - name: Build and push Backend Docker image
           run: |
-            docker build -t rakul21/celpip_app_backend:latest ./backend
+            docker build -t rakul21/celpip_app_backend:latest ./Backend/celpipapp
             docker push rakul21/celpip_app_backend:latest
         
         - name: Build and push Frontend Docker image
           run: |
-            docker build -t rakul21/celpip_app_frontend:latest ./frontend
+            docker build -t rakul21/celpip_app_frontend:latest ./frontend/celipapp
             docker push rakul21/celpip_app_backend:latest
         
         - name: Setup AWS CLI
