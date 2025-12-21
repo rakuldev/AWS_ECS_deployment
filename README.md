@@ -1,6 +1,4 @@
-### Create docker compose for two services: frontend & backend
+### ECS fargate deployment for a Flask & Node app
 
-Your Task:
-- Create a docker compose file
-- Encapsulate both the microservices into the compose file, bind envs, ports
-- Execute the compose file
+## About the App:
+Application is built for Celpip practice with synonyms and antonyms for various fancy words.
