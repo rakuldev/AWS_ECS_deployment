@@ -55,14 +55,14 @@ jobs:
           run: |
             aws ecs update-service \
               --cluster celpip-ecs-cluster \
-              --service celpip-backend-service \ 
+              --service celpip-backend-service \
               --force-new-deployment
         
         - name: Update ECS Frontend service
           run: |
             aws ecs update-service \
               --cluster celpip-ecs-cluster \
-              --service celpip-frontend-service \ 
+              --service celpip-frontend-service \
               --force-new-deployment
         
         - name: Docker logout
