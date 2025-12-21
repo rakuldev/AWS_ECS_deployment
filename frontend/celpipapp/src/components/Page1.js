@@ -129,11 +129,7 @@ const Page1 = ({ onRedirect }) => {
   
     try {
       // Make API call
-<<<<<<< HEAD
-      const response = await fetch("http://localhost:5000/api/vocabulary", {
-=======
       const response = await fetch("/api/vocabulary", {
->>>>>>> a24b991 (main | added prod based changes on frontend and backend)
         method: "POST",
         headers: {
           "Content-Type": "application/json",
