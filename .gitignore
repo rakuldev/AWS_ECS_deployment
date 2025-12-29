@@ -1,0 +1,10 @@
+# Ignore Terraform provider binaries and modules
+**/.terraform/*
+
+# Ignore state files
+*.tfstate
+*.tfstate.*
+
+# Ignore variables files (often contain secrets)
+*.tfvars
+*.tfvars.json

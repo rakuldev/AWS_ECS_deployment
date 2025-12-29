@@ -1,5 +1,20 @@
 # ECS fargate deployment for a Flask & Node app
 
+## Project Versions
+
+### Version 1
+- Manual AWS setup
+- ECS Fargate
+- No Infrastructure as Code
+
+### Version 2 (Current)
+- Terraform-based IaC
+- ECS Fargate
+- Modular architecture
+
+Infrastructure code is available under:
+`infra/`
+
 ## About the App:
 Application is built for Celpip practice with synonyms and antonyms for various fancy words.
 The tech stack involved:
