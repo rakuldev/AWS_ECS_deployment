@@ -24,6 +24,8 @@ The tech stack involved:
 ## The Workflow for ECS deployment
 ![aws_ecs_rec](https://github.com/user-attachments/assets/cdb7f6b2-e90a-43c9-9af8-750638e7ab2f)
 
+<img width="2421" height="827" alt="graph" src="https://github.com/user-attachments/assets/0407ad0d-3b0e-4fc8-a457-a8dff98129e2" />
+
 As described, the traffic initally flows in through the Application load balancer which transfers the traffic via listeners to the Target groups. We've got two target groups configured:
 - Tg1: For the frontend (default)
 - Tg2: For backend testing (priority 10) - configured with rule: if the url has a substring "/api/*" in its path, the traffic flow redirection will go to any existing valid API endpoint.
@@ -64,3 +66,5 @@ This carries the data of Target groups, load balancer so that an IP would be ass
 
 <b>Backend Task</b>
 <img width="1589" height="880" alt="Screenshot 2025-12-20 225820" src="https://github.com/user-attachments/assets/3c43f370-849d-4f47-96ab-400300686ba3" />
+
+
